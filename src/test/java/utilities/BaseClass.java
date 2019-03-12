@@ -36,4 +36,8 @@ public class BaseClass extends GenericHelper{
 		}
 	}
 	
+	public boolean validataAlertText(String expectedText, String actualText) {
+		return actualText.toLowerCase().contains(expectedText.toLowerCase());
+	}
+	
 }

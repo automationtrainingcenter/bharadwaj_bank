@@ -42,5 +42,10 @@ public class BankHomePage {
 	public void clickLogin() {
 		this.login().click();
 	}
+	
+	//verify bank home page is opened after successful launch
+	public boolean verifyBankHomePage() {
+		return driver.getTitle().equals("KEXIM BANK") && this.login().isDisplayed();
+	}
 
 }

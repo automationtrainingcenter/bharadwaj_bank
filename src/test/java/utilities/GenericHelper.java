@@ -1,9 +1,12 @@
 package utilities;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Properties;
 
 public class GenericHelper {
 	/**
@@ -27,5 +30,19 @@ public class GenericHelper {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public String readProperty(String propertyName) {
+		String value = null;
+		try {
+			FileInputStream fis = new FileInputStream(getFilePath(".\\", "config.properties"));
+			Properties prop = new Properties();
+			prop.load(fis);
+			value =  prop.getProperty(propertyName);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		return value;
+		
 	}
 }

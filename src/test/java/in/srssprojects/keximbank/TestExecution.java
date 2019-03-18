@@ -12,7 +12,8 @@ public class TestExecution extends BaseClass {
 	AdminHomePage adminHomePage;
 	RoleDetailsPage roleDetailsPage;
 	RoleCreationPage roleCreationPage;
-	
+	BranchDetailsPage branchDetailsPage;
+	BranchCreationPage branchCreationPage;
 	
 	Alert alert;
 	String actualText;
@@ -84,6 +85,20 @@ public class TestExecution extends BaseClass {
 		roleDetailsPage = roleCreationPage.clickCancel();
 		Assert.assertTrue(roleDetailsPage.isNewRoleButtonDisplayed());
 	}
+	
+	@Test(priority  = 7)
+	public void branchCreationWithValidData() {
+		branchDetailsPage = adminHomePage.clickBranches();
+        branchCreationPage=branchDetailsPage.clickNewBranchButton();
+        branchCreationPage.fillBranchCreationForm(TestData.BRANCHNAME, TestData.ADDRESS1, TestData.AREA, TestData.ZIPCODE, TestData.COUNTRY, TestData.STATE, TestData.CITY);
+		alert = branchCreationPage.clickSubmit();
+		actualText = alert.getText();
+		alert.accept();
+		System.out.println(actualText);
+		Assert.assertFalse(validataAlertText("created sucessfully", actualText));
+
+	}
+	
 	
 	@Test(priority  = 20)
 	public void logoutAndClose() {

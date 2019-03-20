@@ -122,9 +122,9 @@ public class BranchCreationPage {
 		}
 
 		// click cancel
-		public RoleDetailsPage clickCancel() {
+		public BranchDetailsPage clickCancel() {
 			this.cancel.click();
-			return PageFactory.initElements(driver, RoleDetailsPage.class);
+			return PageFactory.initElements(driver, BranchDetailsPage.class);
 		}
 	
 	//fill branch creation form
@@ -137,5 +137,11 @@ public class BranchCreationPage {
 			this.selectState(state);
 			this.selectCity(city);
 			
+		}
+		
+		
+		// verify branch name field is empty
+		public boolean isBranchNameEmpty() {
+			return js.executeScript("return arguments[0].value", this.branchName).toString().isEmpty();
 		}
 }

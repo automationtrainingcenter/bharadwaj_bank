@@ -14,18 +14,18 @@ public class TestExecution extends BaseClass {
 	RoleCreationPage roleCreationPage;
 	BranchDetailsPage branchDetailsPage;
 	BranchCreationPage branchCreationPage;
-	
+
 	Alert alert;
 	String actualText;
 
-	@Test(priority  = 0)
+	@Test(priority = 0)
 	public void testBrowserLaunch() {
 		launchBrowser(readProperty("browserName"), readProperty("url"));
 		bankHomePage = new BankHomePage(driver);
 		Assert.assertTrue(bankHomePage.verifyBankHomePage());
 	}
 
-	@Test(priority  = 1)
+	@Test(priority = 1)
 	public void loginWithValidData() {
 		bankHomePage.fillUserName(readProperty("username"));
 		bankHomePage.fillPassword(readProperty("password"));
@@ -34,7 +34,7 @@ public class TestExecution extends BaseClass {
 		Assert.assertTrue(adminHomePage.verifyAdminHomePage());
 	}
 
-	@Test(priority  = 2)
+	@Test(priority = 2)
 	public void roleCreationWithValidData() {
 		roleDetailsPage = adminHomePage.clickRoles();
 		roleCreationPage = roleDetailsPage.clickNewRoleButton();
@@ -45,8 +45,8 @@ public class TestExecution extends BaseClass {
 		System.out.println(actualText);
 		Assert.assertTrue(validataAlertText("created sucessfully", actualText));
 	}
-	
-	@Test(priority  = 3)
+
+	@Test(priority = 3)
 	public void roleCreationWithDuplicateData() {
 		roleDetailsPage = adminHomePage.clickRoles();
 		roleCreationPage = roleDetailsPage.clickNewRoleButton();
@@ -57,8 +57,8 @@ public class TestExecution extends BaseClass {
 		System.out.println(actualText);
 		Assert.assertTrue(validataAlertText("Already existed", actualText));
 	}
-	
-	@Test(priority  = 4)
+
+	@Test(priority = 4)
 	public void roleCrationWithBlankData() {
 		roleDetailsPage = adminHomePage.clickRoles();
 		roleCreationPage = roleDetailsPage.clickNewRoleButton();
@@ -68,8 +68,8 @@ public class TestExecution extends BaseClass {
 		System.out.println(actualText);
 		Assert.assertTrue(validataAlertText("Please fill in the following", actualText));
 	}
-	
-	@Test(priority  = 5)
+
+	@Test(priority = 5)
 	public void roleCreationReset() {
 		roleDetailsPage = adminHomePage.clickRoles();
 		roleCreationPage = roleDetailsPage.clickNewRoleButton();
@@ -78,33 +78,75 @@ public class TestExecution extends BaseClass {
 		Assert.assertTrue(roleCreationPage.isRoleNameEmpty());
 	}
 
-	@Test(priority  = 6)
+	@Test(priority = 6)
 	public void roleCreationCancel() {
 		roleDetailsPage = adminHomePage.clickRoles();
 		roleCreationPage = roleDetailsPage.clickNewRoleButton();
 		roleDetailsPage = roleCreationPage.clickCancel();
 		Assert.assertTrue(roleDetailsPage.isNewRoleButtonDisplayed());
 	}
-	
-	@Test(priority  = 7)
+
+	@Test(priority = 7)
 	public void branchCreationWithValidData() {
 		branchDetailsPage = adminHomePage.clickBranches();
-        branchCreationPage=branchDetailsPage.clickNewBranchButton();
-        branchCreationPage.fillBranchCreationForm(TestData.BRANCHNAME, TestData.ADDRESS1, TestData.AREA, TestData.ZIPCODE, TestData.COUNTRY, TestData.STATE, TestData.CITY);
+		branchCreationPage = branchDetailsPage.clickNewBranchButton();
+		branchCreationPage.fillBranchCreationForm(TestData.BRANCHNAME, TestData.ADDRESS1, TestData.AREA,
+				TestData.ZIPCODE, TestData.COUNTRY, TestData.STATE, TestData.CITY);
 		alert = branchCreationPage.clickSubmit();
 		actualText = alert.getText();
 		alert.accept();
 		System.out.println(actualText);
-		Assert.assertFalse(validataAlertText("created sucessfully", actualText));
+		Assert.assertTrue(validataAlertText("created sucessfully", actualText));
 
 	}
-	
-	
-	@Test(priority  = 20)
+
+	@Test(priority = 8)
+	public void branchCreationWithDuplicatedData() {
+		branchDetailsPage = adminHomePage.clickBranches();
+		branchCreationPage = branchDetailsPage.clickNewBranchButton();
+		branchCreationPage.fillBranchCreationForm(TestData.BRANCHNAME, TestData.ADDRESS1, TestData.AREA,
+				TestData.ZIPCODE, TestData.COUNTRY, TestData.STATE, TestData.CITY);
+		alert = branchCreationPage.clickSubmit();
+		actualText = alert.getText();
+		alert.accept();
+		System.out.println(actualText);
+		Assert.assertTrue(validataAlertText("already exist", actualText));
+	}
+
+	@Test(priority = 9)
+	public void branchCreationWithBlankData() {
+		branchDetailsPage = adminHomePage.clickBranches();
+		branchCreationPage = branchDetailsPage.clickNewBranchButton();
+		alert = branchCreationPage.clickSubmit();
+		actualText = alert.getText();
+		alert.accept();
+		System.out.println(actualText);
+		Assert.assertTrue(validataAlertText("Please fill in the following", actualText));
+
+	}
+
+	@Test(priority = 10)
+	public void branchCreationReset() {
+		branchDetailsPage = adminHomePage.clickBranches();
+		branchCreationPage = branchDetailsPage.clickNewBranchButton();
+		branchCreationPage.fillBranchCreationForm(TestData.BRANCHNAME, TestData.ADDRESS1, TestData.AREA,
+				TestData.ZIPCODE, TestData.COUNTRY, TestData.STATE, TestData.CITY);
+		branchCreationPage.clickReset();
+		Assert.assertTrue(branchCreationPage.isBranchNameEmpty());
+	}
+
+	@Test(priority = 11)
+	public void branchCreationCancel() {
+		branchDetailsPage = adminHomePage.clickBranches();
+		branchCreationPage = branchDetailsPage.clickNewBranchButton();
+		branchDetailsPage = branchCreationPage.clickCancel();
+		Assert.assertTrue(branchDetailsPage.isNewBranchButtonDisplayed());
+	}
+
+	@Test(priority = 20)
 	public void logoutAndClose() {
 		adminHomePage.clickLogout();
 		closeBrowser();
 	}
-	
 
 }

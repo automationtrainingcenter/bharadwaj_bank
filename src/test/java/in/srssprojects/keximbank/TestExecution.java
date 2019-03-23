@@ -3,6 +3,8 @@ package in.srssprojects.keximbank;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import utilities.BaseClass;
@@ -17,8 +19,8 @@ public class TestExecution extends BaseClass {
 
 	Alert alert;
 	String actualText;
-
-	@Test(priority = 0)
+	
+	@BeforeClass
 	public void testBrowserLaunch() {
 		launchBrowser(readProperty("browserName"), readProperty("url"));
 		bankHomePage = new BankHomePage(driver);
@@ -46,7 +48,7 @@ public class TestExecution extends BaseClass {
 		Assert.assertTrue(validataAlertText("created sucessfully", actualText));
 	}
 
-	@Test(priority = 3)
+	@Test(priority = 3,  dependsOnMethods= {"roleCreationWithValidData"})
 	public void roleCreationWithDuplicateData() {
 		roleDetailsPage = adminHomePage.clickRoles();
 		roleCreationPage = roleDetailsPage.clickNewRoleButton();
@@ -71,6 +73,7 @@ public class TestExecution extends BaseClass {
 
 	@Test(priority = 5)
 	public void roleCreationReset() {
+		System.out.println("executing role creation reset");
 		roleDetailsPage = adminHomePage.clickRoles();
 		roleCreationPage = roleDetailsPage.clickNewRoleButton();
 		roleCreationPage.fillRoleCrationForm(TestData.ROLENAME, TestData.ROLETYPE);
@@ -143,7 +146,7 @@ public class TestExecution extends BaseClass {
 		Assert.assertTrue(branchDetailsPage.isNewBranchButtonDisplayed());
 	}
 
-	@Test(priority = 20)
+	@AfterClass
 	public void logoutAndClose() {
 		adminHomePage.clickLogout();
 		closeBrowser();

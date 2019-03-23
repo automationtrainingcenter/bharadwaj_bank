@@ -3,7 +3,7 @@ package in.srssprojects.keximbank;
 public class TestData {
 	
 	//to fill role creation form
-	static final String ROLENAME = "employeeRoleOne";
+	static final String ROLENAME = "employeeRoleTwo";
 	static final String ROLETYPE = "E";
 	static final String BRANCHNAME = "Miyapur";
 	static final String ADDRESS1="Hyderabad";

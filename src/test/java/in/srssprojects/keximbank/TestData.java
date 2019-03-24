@@ -12,5 +12,8 @@ public class TestData {
 	static final String ZIPCODE = "502032";
 	static final String STATE = "Andhra Pradesh";
 	static final String COUNTRY = "INDIA";
+	static final String EMPNAME = "employeeNameOne";
+	static final String LOGINPASSWORD = "password1";
+	
 
 }

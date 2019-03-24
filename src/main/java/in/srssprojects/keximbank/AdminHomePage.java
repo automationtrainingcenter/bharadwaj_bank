@@ -48,8 +48,9 @@ public class AdminHomePage {
 	}
 
 	// click on employees
-	public void clickEmployees() {
+	public EmployeeDetailsPage clickEmployees() {
 		this.employees.click();
+		return PageFactory.initElements(driver, EmployeeDetailsPage.class);
 	}
 
 	// click on home

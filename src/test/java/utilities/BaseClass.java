@@ -14,13 +14,13 @@ public class BaseClass extends GenericHelper{
 			System.setProperty("webdriver.chrome.driver", getFilePath("drivers", "chromedriver.exe"));
 			driver = new ChromeDriver();
 		} else if (browserName.equalsIgnoreCase("firefox") && os.contains("win")) {
-			System.setProperty("webdriver.gecko.driver",getFilePath("drivers", "gekcodriver.exe"));
+			System.setProperty("webdriver.gecko.driver",getFilePath("drivers", "geckodriver.exe"));
 			driver = new FirefoxDriver();
 		}else if (browserName.equalsIgnoreCase("chrome")){
 			System.setProperty("webdriver.chrome.driver", getFilePath("drivers", "chromedriver"));
 			driver = new ChromeDriver();
 		}else if(browserName.equalsIgnoreCase("firefox")) {
-			System.setProperty("webdriver.gecko.driver", getFilePath("drivers", "gekcodriver")); 
+			System.setProperty("webdriver.gecko.driver", getFilePath("drivers", "geckodriver")); 
 			driver = new FirefoxDriver();
 		}
 		driver.manage().window().maximize();

@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="16" total="23" passed="7">
+  <reporter-output>
+  </reporter-output>
+  <suite name="basic" duration-ms="74092" started-at="2019-04-02T13:46:52Z" finished-at="2019-04-02T13:48:06Z">
+    <groups>
+      <group name="cancel">
+        <method signature="TestExecution.loginWithValidData()[pri:1, instance:in.srssprojects.keximbank.BasicExecution@6a4f787b]" name="loginWithValidData" class="in.srssprojects.keximbank.TestExecution"/>
+      </group> <!-- cancel -->
+      <group name="valid">
+        <method signature="TestExecution.loginWithValidData()[pri:1, instance:in.srssprojects.keximbank.BasicExecution@6a4f787b]" name="loginWithValidData" class="in.srssprojects.keximbank.TestExecution"/>
+      </group> <!-- valid -->
+      <group name="role">
+        <method signature="TestExecution.loginWithValidData()[pri:1, instance:in.srssprojects.keximbank.BasicExecution@6a4f787b]" name="loginWithValidData" class="in.srssprojects.keximbank.TestExecution"/>
+      </group> <!-- role -->
+      <group name="invlaid">
+        <method signature="TestExecution.loginWithValidData()[pri:1, instance:in.srssprojects.keximbank.BasicExecution@6a4f787b]" name="loginWithValidData" class="in.srssprojects.keximbank.TestExecution"/>
+      </group> <!-- invlaid -->
+      <group name="create">
+        <method signature="TestExecution.loginWithValidData()[pri:1, instance:in.srssprojects.keximbank.BasicExecution@6a4f787b]" name="loginWithValidData" class="in.srssprojects.keximbank.TestExecution"/>
+      </group> <!-- create -->
+      <group name="reset">
+        <method signature="TestExecution.loginWithValidData()[pri:1, instance:in.srssprojects.keximbank.BasicExecution@6a4f787b]" name="loginWithValidData" class="in.srssprojects.keximbank.TestExecution"/>
+      </group> <!-- reset -->
+      <group name="duplicate">
+        <method signature="TestExecution.loginWithValidData()[pri:1, instance:in.srssprojects.keximbank.BasicExecution@6a4f787b]" name="loginWithValidData" class="in.srssprojects.keximbank.TestExecution"/>
+      </group> <!-- duplicate -->
+      <group name="employee">
+        <method signature="TestExecution.loginWithValidData()[pri:1, instance:in.srssprojects.keximbank.BasicExecution@6a4f787b]" name="loginWithValidData" class="in.srssprojects.keximbank.TestExecution"/>
+      </group> <!-- employee -->
+      <group name="branch">
+        <method signature="TestExecution.loginWithValidData()[pri:1, instance:in.srssprojects.keximbank.BasicExecution@6a4f787b]" name="loginWithValidData" class="in.srssprojects.keximbank.TestExecution"/>
+      </group> <!-- branch -->
+    </groups>
+    <test name="basic test" duration-ms="74092" started-at="2019-04-02T13:46:52Z" finished-at="2019-04-02T13:48:06Z">
+      <class name="in.srssprojects.keximbank.BasicExecution">
+        <test-method status="PASS" signature="testBrowserLaunch()[pri:0, instance:in.srssprojects.keximbank.BasicExecution@6a4f787b]" name="testBrowserLaunch" is-config="true" duration-ms="11883" started-at="2019-04-02T13:46:52Z" finished-at="2019-04-02T13:47:03Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testBrowserLaunch -->
+        <test-method status="PASS" signature="loginWithValidData()[pri:1, instance:in.srssprojects.keximbank.BasicExecution@6a4f787b]" name="loginWithValidData" duration-ms="2827" started-at="2019-04-02T13:47:03Z" finished-at="2019-04-02T13:47:06Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginWithValidData -->
+        <test-method status="PASS" signature="employeeCreationWithMultipleDataUsingDataprovider(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:18, instance:in.srssprojects.keximbank.BasicExecution@6a4f787b]" name="employeeCreationWithMultipleDataUsingDataprovider" duration-ms="12478" started-at="2019-04-02T13:47:07Z" data-provider="empData" finished-at="2019-04-02T13:47:20Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[venkatOne]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[password1]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[cashierOne]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[Bangalore]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- employeeCreationWithMultipleDataUsingDataprovider -->
+        <test-method status="PASS" signature="employeeCreationWithMultipleDataUsingDataprovider(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:18, instance:in.srssprojects.keximbank.BasicExecution@6a4f787b]" name="employeeCreationWithMultipleDataUsingDataprovider" duration-ms="10797" started-at="2019-04-02T13:47:20Z" data-provider="empData" finished-at="2019-04-02T13:47:30Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[sriramTwo]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[password2]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[cashierTwo]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[Bangalore]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- employeeCreationWithMultipleDataUsingDataprovider -->
+        <test-method status="PASS" signature="employeeCreationWithMultipleDataUsingDataprovider(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:18, instance:in.srssprojects.keximbank.BasicExecution@6a4f787b]" name="employeeCreationWithMultipleDataUsingDataprovider" duration-ms="9210" started-at="2019-04-02T13:47:30Z" data-provider="empData" finished-at="2019-04-02T13:47:40Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[lakshmiThree]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[password3]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[cashierThree]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[Bangalore]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- employeeCreationWithMultipleDataUsingDataprovider -->
+        <test-method status="PASS" signature="employeeCreationWithMultipleDataUsingDataprovider(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:18, instance:in.srssprojects.keximbank.BasicExecution@6a4f787b]" name="employeeCreationWithMultipleDataUsingDataprovider" duration-ms="10459" started-at="2019-04-02T13:47:40Z" data-provider="empData" finished-at="2019-04-02T13:47:50Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[bhanuFour]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[password4]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[cashierFour]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[Bangalore]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- employeeCreationWithMultipleDataUsingDataprovider -->
+        <test-method status="PASS" signature="employeeCreationWithMultipleDataUsingDataprovider(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:18, instance:in.srssprojects.keximbank.BasicExecution@6a4f787b]" name="employeeCreationWithMultipleDataUsingDataprovider" duration-ms="6974" started-at="2019-04-02T13:47:50Z" data-provider="empData" finished-at="2019-04-02T13:47:57Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[raviFive]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[password5]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[cashierFive]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[Bangalore]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- employeeCreationWithMultipleDataUsingDataprovider -->
+        <test-method status="PASS" signature="employeeCreationWithMultipleDataUsingDataprovider(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:18, instance:in.srssprojects.keximbank.BasicExecution@6a4f787b]" name="employeeCreationWithMultipleDataUsingDataprovider" duration-ms="4804" started-at="2019-04-02T13:47:57Z" data-provider="empData" finished-at="2019-04-02T13:48:02Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[srinuEmp]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[password6]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[cashierFive]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[Bangalore]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- employeeCreationWithMultipleDataUsingDataprovider -->
+        <test-method status="PASS" signature="logoutAndClose()[pri:0, instance:in.srssprojects.keximbank.BasicExecution@6a4f787b]" name="logoutAndClose" is-config="true" duration-ms="3877" started-at="2019-04-02T13:48:02Z" finished-at="2019-04-02T13:48:06Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- logoutAndClose -->
+      </class> <!-- in.srssprojects.keximbank.BasicExecution -->
+    </test> <!-- basic test -->
+  </suite> <!-- basic -->
+</testng-results>

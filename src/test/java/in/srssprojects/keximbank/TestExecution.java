@@ -5,9 +5,11 @@ import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import utilities.BaseClass;
+import utilities.ExcelHelper;
 
 public class TestExecution extends BaseClass {
 	BankHomePage bankHomePage;
@@ -21,8 +23,6 @@ public class TestExecution extends BaseClass {
 
 	Alert alert;
 	String actualText;
-
-	
 
 	@Test(priority = 1, groups = { "role", "branch", "employee", "create", "reset", "cancel", "valid", "invlaid",
 			"duplicate" })
@@ -194,6 +194,43 @@ public class TestExecution extends BaseClass {
 		employeeCreationPage = employeeDetailsPage.clickNewEmployeeButton();
 		employeeDetailsPage = employeeCreationPage.clickCancel();
 		Assert.assertTrue(employeeDetailsPage.isNewEmployeeButtonDisplayed());
+	}
+
+	@Test(priority = 17)
+	public void roleCreationWithMultipleDataWithoutDataProvider() {
+		ExcelHelper excel = new ExcelHelper();
+		excel.setExcel("", "testdata.xls", "roleData");
+		int nor = excel.rowCount();
+		int noc = excel.columnCount();
+		for (int i = 1; i <= nor; i++) {
+			String roleName = excel.readData(i, 0);
+			String roleType = excel.readData(i,  2);
+			roleDetailsPage = adminHomePage.clickRoles();
+			roleCreationPage = roleDetailsPage.clickNewRoleButton();
+			roleCreationPage.fillRoleCrationForm(roleName, roleType);
+			alert = roleCreationPage.clickSubmit();
+			actualText = alert.getText();
+			alert.accept();
+			System.out.println(actualText);
+			Assert.assertTrue(validataAlertText("created Sucessfully", actualText));
+		}
+	}
+	
+	@DataProvider(name = "empData")
+	public Object[][] getEmpData(){
+		ExcelHelper excel = new ExcelHelper();
+		return excel.readExcelData("", "testdata.xls", "employeeData");
+	}
+	
+	@Test(priority = 18, dataProvider="empData")
+	public void employeeCreationWithMultipleDataUsingDataprovider(String empName, String password, String role, String branch) {
+		employeeDetailsPage = adminHomePage.clickEmployees();
+		employeeCreationPage = employeeDetailsPage.clickNewEmployeeButton();
+		employeeCreationPage.fillEmployeeCreationForm(empName, password, role, branch);
+		alert = employeeCreationPage.clickSubmit();
+		actualText = alert.getText();
+		alert.accept();
+		Assert.assertTrue(validataAlertText("Successfully", actualText));
 	}
 
 	@AfterClass(groups = { "role", "branch", "employee", "create", "reset", "cancel", "valid", "invlaid", "duplicate" })
